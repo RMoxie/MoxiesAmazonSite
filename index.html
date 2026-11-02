@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Moxie’s Amazon Site — Personal Amazon portals for family & friends</title>
+<meta name="description" content="Moxie’s Amazon Site: personal Amazon search portals for family and friends. Every search carries Moxie’s affiliate tag.">
+<meta name="theme-color" content="#1e3a5f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<style>
+:root { --navy:#1e3a5f; --red:#c0392b; --red-d:#96281b; --bg:#f4f7fb; --card:#ffffff; --text:#1f2937; --muted:#6b7280; --line:#dbe7f3; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height:1.55; }
+.site-header { background: var(--navy); color:#fff; padding:1rem 1.25rem; }
+.site-header a { color:#fff; text-decoration:none; font-weight:800; font-size:1.15rem; }
+.site-header .tag { color:#a9c8e8; font-size:.85rem; display:block; font-weight:400; }
+.container { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+h1 { color: var(--navy); margin:.5rem 0; }
+h2 { color: var(--navy); margin-top:2rem; }
+.lead { font-size:1.08rem; color:#374151; max-width:60ch; }
+.amazon-search { display:flex; gap:.6rem; max-width:640px; margin:1.5rem 0 0; }
+.amazon-search input[type="search"] { flex:1; min-height:52px; padding:.8rem 1.1rem; border-radius:.7rem; border:1px solid var(--line); font-size:1rem; }
+.amazon-search button { min-height:52px; padding:.8rem 1.3rem; border-radius:.7rem; border:none; background:var(--red); color:#fff; font-weight:800; font-size:1rem; cursor:pointer; white-space:nowrap; }
+.amazon-search button:hover { background:var(--red-d); }
+@media (max-width:560px){ .amazon-search{ flex-direction:column; } }
+.note { color:var(--muted); font-size:.9rem; }
+.box { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.25rem; margin-top:1.5rem; }
+.portal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
+.portal-card { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.25rem; text-decoration:none; color:var(--text); display:block; }
+.portal-card:hover { border-color:var(--navy); }
+.portal-card strong { color:var(--navy); font-size:1.05rem; }
+.portal-card span { display:block; color:var(--muted); font-size:.88rem; }
+.portal-wrap { display:grid; grid-template-columns:1.4fr 1fr; gap:2rem; margin-top:1rem; align-items:start; }
+@media (max-width:860px){ .portal-wrap{ grid-template-columns:1fr; } }
+.history-panel { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.25rem; }
+.history-panel h2 { margin-top:0; font-size:1.15rem; }
+.history-list { list-style:none; margin:1rem 0; padding:0; max-height:480px; overflow-y:auto; }
+.history-list li { padding:.6rem 0; border-bottom:1px solid var(--line); font-size:.95rem; }
+.history-list li:last-child { border-bottom:none; }
+.hq { font-weight:700; color:var(--navy); cursor:pointer; text-decoration:underline; text-underline-offset:.2rem; }
+.hdate { color:var(--muted); font-size:.82rem; display:block; }
+.bought-tag { display:inline-block; margin-top:.25rem; font-size:.8rem; font-weight:700; color:#15803d; }
+.mini-btn { margin-left:.5rem; font-size:.78rem; padding:.25rem .6rem; border-radius:.5rem; border:1px solid var(--line); background:#fff; color:var(--text); cursor:pointer; }
+.mini-btn:hover { border-color:var(--navy); }
+.steps { counter-reset: step; list-style:none; padding:0; }
+.steps li { counter-increment: step; margin:.8rem 0; padding-left:2.6rem; position:relative; }
+.steps li::before { content:counter(step); position:absolute; left:0; top:0; width:1.9rem; height:1.9rem; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-weight:800; font-size:.9rem; }
+footer.site-footer { border-top:1px solid var(--line); padding:1.5rem 1.25rem; text-align:center; color:var(--muted); font-size:.85rem; max-width:1080px; margin:0 auto; }
+footer.site-footer a { color:var(--navy); }
+</style>
+</head>
+<body>
+<header class="site-header"><a href="index.html">Moxie&rsquo;s Amazon Site</a><span class="tag">Personal Amazon portals for family &amp; friends</span></header>
+<main class="container">
+
+<h1>Moxie&rsquo;s Amazon Site</h1>
+<p class="lead">Everyone you love, shopping Amazon through one family doorway. Pick your portal below &mdash; every search runs through Amazon with Moxie&rsquo;s tag attached, so the family project earns a little credit on things you were buying anyway. Same prices, zero extra cost.</p>
+<ol class="steps">
+<li><strong>Pick your portal</strong> &mdash; find your name below and open your page.</li>
+<li><strong>Search anything</strong> &mdash; type it in, hit Search Amazon, buy within a day.</li>
+<li><strong>Put it on your phone</strong> &mdash; add it to your home screen (see below) and it&rsquo;s always one tap away.</li>
+</ol>
+<h2>Pick your portal</h2>
+<div class="portal-grid">
+<a class="portal-card" href="moxies-amazon.html"><strong>Moxie&rsquo;s Amazon</strong><span>The man himself.</span></a>
+<a class="portal-card" href="moms-amazon.html"><strong>Mom&rsquo;s Amazon</strong><span>Mom’s doorway to Amazon.</span></a>
+<a class="portal-card" href="bobs-amazon.html"><strong>Bob&rsquo;s Amazon</strong><span>Bob’s doorway to Amazon.</span></a>
+<a class="portal-card" href="scotts-amazon.html"><strong>Scott&rsquo;s Amazon</strong><span>Scott’s doorway to Amazon.</span></a>
+<a class="portal-card" href="maribeths-amazon.html"><strong>Maribeth&rsquo;s Amazon</strong><span>Maribeth’s doorway to Amazon.</span></a>
+<a class="portal-card" href="hollys-amazon.html"><strong>Holly&rsquo;s Amazon</strong><span>Holly’s doorway to Amazon.</span></a>
+<a class="portal-card" href="sisters-amazon.html"><strong>Sister&rsquo;s Amazon</strong><span>Sister’s doorway to Amazon.</span></a>
+<a class="portal-card" href="friends-amazon.html"><strong>Guest&rsquo;s Amazon</strong><span>For anyone else — grab this one.</span></a>
+</div>
+
+<div class="box">
+<h2 style="margin-top:0">Put this on your phone &#x1F4F1;</h2>
+<p>It works like an app &mdash; one tap and you&rsquo;re right back here, ready to shop.</p>
+<p><strong>iPhone:</strong> tap <strong>Share</strong> &rarr; <strong>&ldquo;Add to Home Screen&rdquo;</strong> &rarr; <strong>Add</strong>.</p>
+<p><strong>Android:</strong> tap the <strong>&#8942;</strong> menu &rarr; <strong>&ldquo;Add to Home screen&rdquo;</strong> &rarr; <strong>Add</strong>.</p>
+</div>
+
+</main>
+<footer class="site-footer">
+<p><strong>Affiliate disclosure:</strong> As an Amazon Associate, Moxie earns from qualifying purchases <strong>at no additional cost to you</strong>.</p>
+<p>Moxie&rsquo;s Amazon Site &mdash; a family project of <a href="https://www.moxiesextremetechgear.com/">Moxies eXtreme TechGear</a>.</p>
+</footer>
+</body>
+</html>

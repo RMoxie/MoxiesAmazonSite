@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Holly’s Amazon — Moxie’s Amazon Site</title>
+<meta name="description" content="Holly’s personal Amazon portal on Moxie’s Amazon Site. Search anything with Moxie’s tag; keep a dated list of searches and purchases.">
+<meta name="theme-color" content="#1e3a5f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<style>
+:root { --navy:#1e3a5f; --red:#c0392b; --red-d:#96281b; --bg:#f4f7fb; --card:#ffffff; --text:#1f2937; --muted:#6b7280; --line:#dbe7f3; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height:1.55; }
+.site-header { background: var(--navy); color:#fff; padding:1rem 1.25rem; }
+.site-header a { color:#fff; text-decoration:none; font-weight:800; font-size:1.15rem; }
+.site-header .tag { color:#a9c8e8; font-size:.85rem; display:block; font-weight:400; }
+.container { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+h1 { color: var(--navy); margin:.5rem 0; }
+h2 { color: var(--navy); margin-top:2rem; }
+.lead { font-size:1.08rem; color:#374151; max-width:60ch; }
+.amazon-search { display:flex; gap:.6rem; max-width:640px; margin:1.5rem 0 0; }
+.amazon-search input[type="search"] { flex:1; min-height:52px; padding:.8rem 1.1rem; border-radius:.7rem; border:1px solid var(--line); font-size:1rem; }
+.amazon-search button { min-height:52px; padding:.8rem 1.3rem; border-radius:.7rem; border:none; background:var(--red); color:#fff; font-weight:800; font-size:1rem; cursor:pointer; white-space:nowrap; }
+.amazon-search button:hover { background:var(--red-d); }
+@media (max-width:560px){ .amazon-search{ flex-direction:column; } }
+.note { color:var(--muted); font-size:.9rem; }
+.box { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.25rem; margin-top:1.5rem; }
+.portal-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; margin-top:1rem; }
+.portal-card { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.25rem; text-decoration:none; color:var(--text); display:block; }
+.portal-card:hover { border-color:var(--navy); }
+.portal-card strong { color:var(--navy); font-size:1.05rem; }
+.portal-card span { display:block; color:var(--muted); font-size:.88rem; }
+.portal-wrap { display:grid; grid-template-columns:1.4fr 1fr; gap:2rem; margin-top:1rem; align-items:start; }
+@media (max-width:860px){ .portal-wrap{ grid-template-columns:1fr; } }
+.history-panel { background:var(--card); border:1px solid var(--line); border-radius:.8rem; padding:1.25rem; }
+.history-panel h2 { margin-top:0; font-size:1.15rem; }
+.history-list { list-style:none; margin:1rem 0; padding:0; max-height:480px; overflow-y:auto; }
+.history-list li { padding:.6rem 0; border-bottom:1px solid var(--line); font-size:.95rem; }
+.history-list li:last-child { border-bottom:none; }
+.hq { font-weight:700; color:var(--navy); cursor:pointer; text-decoration:underline; text-underline-offset:.2rem; }
+.hdate { color:var(--muted); font-size:.82rem; display:block; }
+.bought-tag { display:inline-block; margin-top:.25rem; font-size:.8rem; font-weight:700; color:#15803d; }
+.mini-btn { margin-left:.5rem; font-size:.78rem; padding:.25rem .6rem; border-radius:.5rem; border:1px solid var(--line); background:#fff; color:var(--text); cursor:pointer; }
+.mini-btn:hover { border-color:var(--navy); }
+.steps { counter-reset: step; list-style:none; padding:0; }
+.steps li { counter-increment: step; margin:.8rem 0; padding-left:2.6rem; position:relative; }
+.steps li::before { content:counter(step); position:absolute; left:0; top:0; width:1.9rem; height:1.9rem; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-weight:800; font-size:.9rem; }
+footer.site-footer { border-top:1px solid var(--line); padding:1.5rem 1.25rem; text-align:center; color:var(--muted); font-size:.85rem; max-width:1080px; margin:0 auto; }
+footer.site-footer a { color:var(--navy); }
+</style>
+</head>
+<body>
+<header class="site-header"><a href="index.html">Moxie&rsquo;s Amazon Site</a><span class="tag">Personal Amazon portals for family &amp; friends</span></header>
+<main class="container">
+
+<h1>Holly&rsquo;s Amazon</h1>
+<p class="lead">Your personal Amazon doorway. Search anything below &mdash; every search opens Amazon with Moxie&rsquo;s tag attached, so the family project gets the credit at no extra cost to you. Your searches are saved in your list with the date, and you can tap &ldquo;bought it&rdquo; on anything you purchase.</p>
+<div class="portal-wrap">
+<section aria-label="Search Amazon">
+<h2>Search Amazon</h2>
+<form id="portal-search" class="amazon-search" action="https://www.amazon.com/s" method="get" target="_blank" rel="sponsored noopener noreferrer" role="search" aria-label="Search Amazon">
+<input type="hidden" name="tag" value="rmoxie-20">
+<input type="search" name="k" id="portal-q" placeholder="Search anything \u2014 baking soda, batteries, whatever\u2026" required aria-label="Search anything on Amazon">
+<button type="submit">Search Amazon \u2192</button>
+</form>
+<p class="note">Tip: buy within 24 hours of searching and the site gets the credit. Same prices, zero extra cost to you.</p>
+<div class="box"><strong>How your list works.</strong> Every search you run here is saved in &ldquo;Your list&rdquo; with today&rsquo;s date. Tap any past search to run it again, or tap &ldquo;bought it&rdquo; to mark the date you purchased. Your list is kept only in this browser on this device.</div>
+</section>
+<aside class="history-panel" aria-label="Your list">
+<h2>Your list</h2>
+<div id="history-root"><p class="note">Nothing searched yet &mdash; your history will appear here.</p></div>
+<p><button class="mini-btn" id="history-clear" type="button">Clear list</button></p>
+</aside>
+</div>
+
+<div class="box">
+<h2 style="margin-top:0">Put this on your phone &#x1F4F1;</h2>
+<p>It works like an app &mdash; one tap and you&rsquo;re right back here, ready to shop.</p>
+<p><strong>iPhone:</strong> tap <strong>Share</strong> &rarr; <strong>&ldquo;Add to Home Screen&rdquo;</strong> &rarr; <strong>Add</strong>.</p>
+<p><strong>Android:</strong> tap the <strong>&#8942;</strong> menu &rarr; <strong>&ldquo;Add to Home screen&rdquo;</strong> &rarr; <strong>Add</strong>.</p>
+</div>
+<p class="note" style="margin-top:2rem"><small>As an Amazon Associate, Moxie earns from qualifying purchases. Product prices and availability are accurate as of the date/time indicated and are subject to change. Any price and availability information displayed on Amazon at the time of purchase will apply to the purchase of this product.</small></p>
+
+</main>
+<footer class="site-footer">
+<p><strong>Affiliate disclosure:</strong> As an Amazon Associate, Moxie earns from qualifying purchases <strong>at no additional cost to you</strong>.</p>
+<p>Moxie&rsquo;s Amazon Site &mdash; a family project of <a href="https://www.moxiesextremetechgear.com/">Moxies eXtreme TechGear</a>.</p>
+</footer>
+
+<script>
+(function() {
+  var KEY = 'moxie-portal-hollys-amazon-v1';
+  var form = document.getElementById('portal-search');
+  var input = document.getElementById('portal-q');
+  var root = document.getElementById('history-root');
+  function load() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { return []; } }
+  function save(items) { try { localStorage.setItem(KEY, JSON.stringify(items.slice(0, 50))); } catch (e) {} }
+  function fmtDate(ts) { var d = new Date(ts); return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); }
+  function render() {
+    var items = load(); root.innerHTML = '';
+    if (!items.length) { var p = document.createElement('p'); p.className = 'note'; p.textContent = 'Nothing searched yet \u2014 your history will appear here.'; root.appendChild(p); return; }
+    var ul = document.createElement('ul'); ul.className = 'history-list';
+    items.forEach(function(it, idx) {
+      var li = document.createElement('li');
+      var q = document.createElement('span'); q.className = 'hq'; q.textContent = it.q; q.title = 'Search again';
+      q.onclick = function() { input.value = it.q; if (form.requestSubmit) { form.requestSubmit(); } else { form.submit(); } };
+      li.appendChild(q);
+      var d = document.createElement('span'); d.className = 'hdate'; d.textContent = 'Searched ' + fmtDate(it.t); li.appendChild(d);
+      if (it.bought) { var b = document.createElement('span'); b.className = 'bought-tag'; b.textContent = '\u2713 Bought ' + fmtDate(it.bought); li.appendChild(b); }
+      else { var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'mini-btn'; btn.textContent = 'Bought it';
+        btn.onclick = function() { var cur = load(); cur[idx].bought = Date.now(); save(cur); render(); }; li.appendChild(btn); }
+      ul.appendChild(li);
+    });
+    root.appendChild(ul);
+  }
+  form.addEventListener('submit', function() {
+    var q = input.value.trim(); if (!q) return;
+    var items = load().filter(function(it) { return it.q.toLowerCase() !== q.toLowerCase(); });
+    items.unshift({ q: q, t: Date.now() }); save(items);
+  });
+  document.getElementById('history-clear').onclick = function() { if (confirm('Clear your whole list on this device?')) { save([]); render(); } };
+  render();
+})();
+</script>
+</body>
+</html>
