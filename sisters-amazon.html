@@ -65,8 +65,8 @@ footer.site-footer a { color:var(--navy); }
 <h2>Search Amazon</h2>
 <form id="portal-search" class="amazon-search" action="https://www.amazon.com/s" method="get" target="_blank" rel="sponsored noopener noreferrer" role="search" aria-label="Search Amazon">
 <input type="hidden" name="tag" value="rmoxie-20">
-<input type="search" name="k" id="portal-q" placeholder="Search anything \u2014 baking soda, batteries, whatever\u2026" required aria-label="Search anything on Amazon">
-<button type="submit">Search Amazon \u2192</button>
+<input type="search" name="k" id="portal-q" placeholder="Search anything — baking soda, batteries, whatever…" required aria-label="Search anything on Amazon">
+<button type="submit">Search Amazon →</button>
 </form>
 <p class="note">Tip: buy within 24 hours of searching and the site gets the credit. Same prices, zero extra cost to you.</p>
 <div class="box"><strong>How your list works.</strong> Every search you run here is saved in &ldquo;Your list&rdquo; with today&rsquo;s date. Tap any past search to run it again, or tap &ldquo;bought it&rdquo; to mark the date you purchased. Your list is kept only in this browser on this device.</div>
@@ -103,7 +103,7 @@ footer.site-footer a { color:var(--navy); }
   function fmtDate(ts) { var d = new Date(ts); return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); }
   function render() {
     var items = load(); root.innerHTML = '';
-    if (!items.length) { var p = document.createElement('p'); p.className = 'note'; p.textContent = 'Nothing searched yet \u2014 your history will appear here.'; root.appendChild(p); return; }
+    if (!items.length) { var p = document.createElement('p'); p.className = 'note'; p.textContent = 'Nothing searched yet — your history will appear here.'; root.appendChild(p); return; }
     var ul = document.createElement('ul'); ul.className = 'history-list';
     items.forEach(function(it, idx) {
       var li = document.createElement('li');
@@ -111,7 +111,7 @@ footer.site-footer a { color:var(--navy); }
       q.onclick = function() { input.value = it.q; if (form.requestSubmit) { form.requestSubmit(); } else { form.submit(); } };
       li.appendChild(q);
       var d = document.createElement('span'); d.className = 'hdate'; d.textContent = 'Searched ' + fmtDate(it.t); li.appendChild(d);
-      if (it.bought) { var b = document.createElement('span'); b.className = 'bought-tag'; b.textContent = '\u2713 Bought ' + fmtDate(it.bought); li.appendChild(b); }
+      if (it.bought) { var b = document.createElement('span'); b.className = 'bought-tag'; b.textContent = '✓ Bought ' + fmtDate(it.bought); li.appendChild(b); }
       else { var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'mini-btn'; btn.textContent = 'Bought it';
         btn.onclick = function() { var cur = load(); cur[idx].bought = Date.now(); save(cur); render(); }; li.appendChild(btn); }
       ul.appendChild(li);
